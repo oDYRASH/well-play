@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,115 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <title>Well Play</title>
 </head>
+
 <body>
+    <!-- https://cdn.discordapp.com/attachments/1222922181881630841/1231896091310686268/page_8.PNG?ex=662a1f23&is=6628cda3&hm=8741a57823f7c1c80a601c766a0c982c6db278cc97b348acbb4f900db4b37ed9&
+    https://cdn.discordapp.com/attachments/1222922181881630841/1231895998402396181/page_7.PNG?ex=662a1f0d&is=6628cd8d&hm=729a9f99767948e153243bd9e68a824451d881a3840fed6eae9a84ea22504164&
+    https://cdn.discordapp.com/attachments/1222922181881630841/1231895863710973952/page_6.PNG?ex=662a1eed&is=6628cd6d&hm=7fdd9fa2af16da81283f66c1151499d94bf9742762f2cee5734ab4f96639ec03&
+    https://cdn.discordapp.com/attachments/1222922181881630841/1231895620680155167/page_5.PNG?ex=662a1eb3&is=6628cd33&hm=cab3b1b09e3e629a777bbbdba2a3eba20e6546a24b15318d6c228f179d691594&
+    https://cdn.discordapp.com/attachments/1222922181881630841/1231895409765650432/page_4.PNG?ex=662a1e81&is=6628cd01&hm=fefa3544a227b443f5bf87c3efcd6750f9d473e5ba20bf1cc839ed10954151ca&
+    https://cdn.discordapp.com/attachments/1222922181881630841/1231895283508580442/page_3.PNG?ex=662a1e63&is=6628cce3&hm=2021dcfb94c2d5e7a6680e8c204876b20cfe556a2f97f879a2cb763af85ce0cf&
+    https://cdn.discordapp.com/attachments/1222922181881630841/1231894849456963584/page_2.PNG?ex=662a1dfb&is=6628cc7b&hm=5ce528b1632a2b57aba3cf1ce32d5753fcaee2d61102f354a145a2ddc7b507ad&
+    https://cdn.discordapp.com/attachments/1222922181881630841/1231894612398964756/page_1.PNG?ex=662a1dc3&is=6628cc43&hm=8833bce237532294ac5d4546e8820fb7308e70f3c3a87b88a8b82b61738e9216& -->
+    
+    <div id="main_container">
+        <h1>Create or join your team</h1>
+        
+        <p>This is one of the site's main pages, with 2 important functions:<br>
+            <li>
+            “Create your team”: This button lets you create your team and takes you to page 2. We also have a "I don't have a team" option that redirects you to our discord where you can find teammates.
+        </li>
+        <li>
+            “Join a team”: This button gives you access to the list of teams already created but not yet complete, and whose status has been set as public by the team manager.</p>
+        </li>
+            <img src="https://cdn.discordapp.com/attachments/1222922181881630841/1231894612398964756/page_1.PNG?ex=662a1dc3&is=6628cc43&hm=8833bce237532294ac5d4546e8820fb7308e70f3c3a87b88a8b82b61738e9216&"
+            alt="page_1">
+            <h1>Create / Invite your team</h1>
+            <p>This page lets you invite (by clicking on the "Invite" button) any user/friend of the platform to join your team.<br>
+
+                if incomplete: <br>
+                
+                <li>
+
+                
+
+                You can save your team (by clicking on the "Save" button), and finish it later, so you'll be redirected to page 3.<br>
+            </li>
+                if complete: <br>
+                <li>
+                You can create your team only if you've invited all 5 players (by clicking on the "Create team" button), so you'll be redirected to page 3.</p>
+            </li>
+                <img src="https://cdn.discordapp.com/attachments/1222922181881630841/1231894849456963584/page_2.PNG?ex=662a1dfb&is=6628cc7b&hm=5ce528b1632a2b57aba3cf1ce32d5753fcaee2d61102f354a145a2ddc7b507ad&"
+            alt="page_2">
+            <h1>Team lobby </h1>
+            <p>This page is considered the team's main page.<br>
+
+                Once the team is complete, it can search for a tournament (by clicking on "search a tournament") redirected <a href="/#ranking_page">Ranking page</a>.<br>
+                
+                There's also an "edit" option, accessible only by the team leader, which lets you add or remove team members.<br>
+                
+                You can also see the points that each player has contributed during all the tournaments played with their team.</p>
+        <img src="https://cdn.discordapp.com/attachments/1222922181881630841/1231895283508580442/page_3.PNG?ex=662a1e63&is=6628cce3&hm=2021dcfb94c2d5e7a6680e8c204876b20cfe556a2f97f879a2cb763af85ce0cf&"
+            alt="page_3">
+            <h1>Tournament lobby</h1>
+            <p>After searching for your tournament, you'll enter a lobby with 3 other teams. <br>
+
+                Over the course of 24 hours, each player on each team will accumulate points in an attempt to finish first in their lobby.<br>
+                
+                The APIs provided by RIOT allow us to access the game history of the players on each team. To earn points for their team, players must play a maximum of 3 games, and their K/D/A will be counted to award more or less points to their team.</p>
+
+        <img src="https://cdn.discordapp.com/attachments/1222922181881630841/1231895409765650432/page_4.PNG?ex=662a1e81&is=6628cd01&hm=fefa3544a227b443f5bf87c3efcd6750f9d473e5ba20bf1cc839ed10954151ca&"
+            alt="page_4" id="ranking_page">
+        <h1>Ranking page </h1>
+        <p>This league table lists the best teams on the platform (reset every month, along with all accumulated points).
+
+            The top 8 from this final ranking will be selected for a monthly tournament, which will be broadcast and we will offer a cash prize to the winning team. </p>
+        <img src="https://cdn.discordapp.com/attachments/1222922181881630841/1231895620680155167/page_5.PNG?ex=662a1eb3&is=6628cd33&hm=cab3b1b09e3e629a777bbbdba2a3eba20e6546a24b15318d6c228f179d691594&"
+            alt="page_5">
+
+        <h1>Rank Explanation Page</h1>
+        <p>This page simply provides an explanation of each grade and the different points you need to accumulate to reach it.</p>
+        <img src="https://cdn.discordapp.com/attachments/1222922181881630841/1231895863710973952/page_6.PNG?ex=662a1eed&is=6628cd6d&hm=7fdd9fa2af16da81283f66c1151499d94bf9742762f2cee5734ab4f96639ec03&"
+            alt="page_6">
+
+        <h1>Team Profile</h1>
+        <p>This page is public and allows you to share your team's progress with all users.</p>
+        <img src="https://cdn.discordapp.com/attachments/1222922181881630841/1231895998402396181/page_7.PNG?ex=662a1f0d&is=6628cd8d&hm=729a9f99767948e153243bd9e68a824451d881a3840fed6eae9a84ea22504164&"
+            alt="page_7">
+
+        <h1>Profile</h1>
+        <p>This page is public and allows you to share your progress with all users.</p>
+        <img src="https://cdn.discordapp.com/attachments/1222922181881630841/1231896091310686268/page_8.PNG?ex=662a1f23&is=6628cda3&hm=8741a57823f7c1c80a601c766a0c982c6db278cc97b348acbb4f900db4b37ed9&"
+            alt="page_8">
+        <footer></footer>
+    </div>
 </body>
-<style>body {background-image: url("{{ url_for('static', filename='images/Logo500.png') }}");}</style>
+<style>
+    #main_container {
+       
+        justify-content: center;
+        padding: 15px;
+    }
+    img{
+        margin: 25px;
+        margin-bottom: 15vh;
+        width: -webkit-fill-available;
+    }
+    *{
+        color: #ededef;
+        font-family: monospace;
+    }
+    h1
+    {
+        margin-bottom: 1rem;
+    }
+    /* At the top level of your code */
+    @media screen and (min-width: 900px) {
+        #main_container  {
+            padding: 12rem 25rem 2rem 25rem;
+        }
+    footer{height: 1px;margin-top: 2vh;}
+}
+</style>
+
 </html>
