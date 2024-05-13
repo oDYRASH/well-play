@@ -6,12 +6,15 @@ from flask import render_template
 @app.route("/", methods=["GET"]) 
 def home():
     return render_template('home.html')
-
+#route riot.txt return 93a5f232-894b-4ea1-bf28-41e3ae8dade1
+@app.route("/riot.txt", methods=["GET"])
+def riot():
+    return "93a5f232-894b-4ea1-bf28-41e3ae8dade1"
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
 
-    app.run(host="0.0.0.0", use_reloader=True)
+    app.run(host="0.0.0.0")
 
 # @app.route("/riot.txt")
 # def riot():
