@@ -14,10 +14,13 @@ def riot():
 
 
 @app.route("//riot.txt", methods=["GET"])
-def riot():
+def riot_bis():
     return "93a5f232-894b-4ea1-bf28-41e3ae8dade1"
 
-
+#base route return hello world
+@app.route("/o", methods=["GET"]) 
+def app_home():
+    return render_template('app.html')
 
 if __name__ == "__main__":
     with app.app_context():
