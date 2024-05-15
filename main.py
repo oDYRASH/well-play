@@ -18,9 +18,31 @@ def riot_bis():
     return "93a5f232-894b-4ea1-bf28-41e3ae8dade1"
 
 #base route return hello world
-@app.route("/o", methods=["GET"]) 
-def app_home():
-    return render_template('app.html')
+@app.route("/start", methods=["GET"]) 
+def start():
+    return render_template('start.html')
+
+#base route return hello world
+@app.route("/create_team", methods=["GET"]) 
+def create_team():
+    return render_template('create_team.html')
+
+#base route return hello world
+@app.route("/search_team", methods=["GET"]) 
+def search_team():
+    return render_template('search_team.html')
+
+#base route return hello world
+@app.route("/team", methods=["GET"])
+def team():
+    return render_template('team.html')
+
+#base route return hello world
+@app.route("/profile", methods=["GET"])
+def profile():
+    return render_template('profile.html')
+
+
 
 if __name__ == "__main__":
     with app.app_context():

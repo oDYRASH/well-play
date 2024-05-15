@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='images/Logo50.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Well Play</title>
+</head>
+
+<body>
+    <!-- vertical menu with icon, absoluto pisition on the right of page -->
+    <nav>
+        <a href="/profile"><img id="icon" src="{{ url_for('static', filename='images/profile-circle.png') }}" alt="Profile"></a>
+        <a href="/team"><img id="icon" src="{{ url_for('static', filename='images/people.png') }}" alt="Team"></a>
+        <a href="/search_team"><img id="icon" src="{{ url_for('static', filename='images/search-normal.png') }}" alt="Search"></a>
+    </nav>
+    <header>
+        <span><img src="{{ url_for('static', filename='images/Logo500.png') }}" alt="WellPlay Logo"
+                style="height: 100px;"></span>
+    </header>
+    <div class="container">
+        <div id="home">
+            <img id="start_screen_img" src="{{url_for('static', filename='images/start_screen.png')}}" alt="">
+            <div class="container_col">
+                <p>Créer ton équipe et invite tes amis à te rejoindre pour participer aux tournois.<br>Rejoins une
+                    équipe existante pour vivre des aventures palpitantes avec d'autres joueurs passionnés.</p>
+                <div id="start_button">
+                    <a href="/create_team" class="button">Créer ton équipe</a>
+                    <a href="/search_team" class="button">Rejoins une équipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Team</th>
+                <th>Points</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Team 1</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Team 2</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Team 3</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Team 4</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Team 5</td>
+                <td>60</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Team 6</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Team 7</td>
+                <td>40</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Team 8</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Team 9</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Team 10</td>
+                <td>10</td>
+            </tr>
+        </table>
+    </div> -->
+</body>
+<style>
+    
+    
+    * {
+        user-select: none !important;
+        color: whitesmoke;
+        font-family: monospace;
+        font-size: large;
+    }
+
+    header {
+        height: 25vh;
+        padding: 25px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body {
+        height: 100vh;
+    }
+
+    nav{
+        position: absolute;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        top: calc(50vh - 165px);
+        background: #0e1224;
+        padding: 32px 32px 32px 50px;
+        border-radius: 105px 0px 0px 105px;
+        height: 330px;
+        justify-content: space-around;
+    }
+
+    .icon{
+        opacity: 0.81;
+    }
+
+    .icon:hover{
+        opacity: 1;
+    }
+
+    .container_col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 55px;
+        position: relative;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        height: 75vh;
+        padding: 50px;
+    }
+
+
+    .button {
+        background-color: #ff4654;
+        border-radius: 15px;
+        padding: 15px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-weight: 900;
+        box-shadow: #1a1717 5px 3px 5px 0px;
+        text-decoration: none;
+    }
+
+
+    #start_button {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        position: absolute;
+        width: -webkit-fill-available;
+        bottom: -20px;
+        font-weight: 600;
+    }
+
+    #home {
+        width: 70%;
+        height: 35vh;
+        background-color: #0E1224;
+        border-radius: 26px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    #start_screen_img {
+        height: 120%;
+        margin-left: -10%;
+        margin-top: -2%;
+    }
+
+    /* body {
+        background-image: url("{{ url_for('static', filename='images/LOTUS.png') }}");
+    } */
+</style>
+
+</html>
