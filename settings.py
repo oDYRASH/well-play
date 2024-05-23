@@ -1,8 +1,8 @@
 import os
 
-from dotenv import load_dotenv#remove pour push
+# from dotenv import load_dotenv#remove pour push
 
-load_dotenv()#remove pour push
+# load_dotenv()#remove pour push
 
 VALORANT_API_KEY = os.getenv("VALORANT_API_KEY")
 CLIENT_ID = os.getenv('RIOT_CLIENT_ID')
