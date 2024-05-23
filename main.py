@@ -1,23 +1,34 @@
 from config import app, db 
-from flask import render_template
+from flask import render_template, redirect, request, session, url_for
+import requests
+import settings
 
 
-#base route return hello world
-@app.route("/", methods=["GET"]) 
-def home():
+##### RIOT STUFF #####
+@app.route("/presentation", methods=["GET"]) 
+def presentation():
     return render_template('home.html')
-
 
 @app.route("/riot.txt", methods=["GET"])
 def riot():
     return "93a5f232-894b-4ea1-bf28-41e3ae8dade1"
 
-
 @app.route("//riot.txt", methods=["GET"])
 def riot_bis():
     return "93a5f232-894b-4ea1-bf28-41e3ae8dade1"
 
-#base route return hello world
+
+#############################################
+################### ARBOR ###################
+#############################################
+@app.route("/", methods=["GET"])
+def home():
+    routes = [str(rule) for rule in app.url_map.iter_rules()]
+    return render_template('routes.html', routes=routes)
+
+##############################################
+################ APP BEGINING ################
+##############################################
 @app.route("/start", methods=["GET"]) 
 def start():
     return render_template('start.html')
@@ -37,12 +48,63 @@ def search_team():
 def team():
     return render_template('team.html')
 
-#base route return hello world
 @app.route("/profile", methods=["GET"])
 def profile():
-    return render_template('profile.html')
+
+    access_token = session.get('access_token')
+    if not access_token:
+        return redirect(url_for('.login'))
+    
+    # Use the access token to fetch user information from Riot's API
+    # Replace 'USER_INFO_URL' with the actual endpoint for fetching user info
+    user_info_url = 'https://example.riotgames.com/userinfo'
+    headers = {'Authorization': f'Bearer {access_token}'}
+    user_info_response = requests.get(user_info_url, headers=headers)
+    user_info = user_info_response.json()
+    
+    return f'Logged in as: {user_info["username"]}'
+    # return render_template('profile.html')
 
 
+################################
+########## RSO ROUTES ##########
+################################
+@app.route('/login')
+def login():
+    authorization_url = f'{settings.AUTHORIZATION_BASE_URL}?client_id={settings.CLIENT_ID}&response_type=code&redirect_uri={settings.REDIRECT_URI}'
+    return redirect(authorization_url)
+
+@app.route('/callback')
+def callback():
+    code = request.args.get('code')
+    token_response = requests.post(
+        settings.TOKEN_URL,
+        data={
+            'grant_type': 'authorization_code',
+            'code': code,
+            'redirect_uri': settings.REDIRECT_URI,
+            'client_id': settings.CLIENT_ID,
+            'client_secret': settings.CLIENT_SECRET
+        },
+        headers={'Content-Type': 'application/x-www-form-urlencoded'}
+    )
+
+    token_response_data = token_response.json()
+    session['access_token'] = token_response_data.get('access_token')
+    return redirect(url_for('.profile'))
+
+################################
+############ LEGAL #############politique de confidentialité
+################################Conditions d'Utilisation
+#base route return hello world
+@app.route("/politique_confidentialite", methods=["GET"]) 
+def politique_confidentialite():
+    return render_template('politique_confidentialite.html')
+
+#base route return hello world
+@app.route("/condition_utilisation", methods=["GET"]) 
+def condition_utilisation():
+    return render_template('condition_utilisation.html')
 
 if __name__ == "__main__":
     with app.app_context():

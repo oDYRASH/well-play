@@ -5,9 +5,25 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none !important;
+  color: whitesmoke;
+  font-family: monospace;
+  font-size: large;
 }
 
 body {
     height: 100vh;
     background-color: #1f2334;
+    color: rgb(242, 243, 246);
+}
+
+button {
+  background-color: #ff4654;
+  border-radius: 15px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 900;
+  box-shadow: #1a1717 5px 3px 5px 0px;
+  text-decoration: none;
 }
