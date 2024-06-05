@@ -27,3 +27,30 @@ button {
   box-shadow: #1a1717 5px 3px 5px 0px;
   text-decoration: none;
 }
+
+h1 {
+  font-size: 2rem;
+  margin: 1rem;
+  margin-left: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 1rem;
+  margin-left: 0;
+
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin: 1rem;
+  margin-left: 0;
+
+}
+
+h4 {
+  font-size: 1rem;
+  margin: 1rem;
+  margin-left: 0;
+
+} 

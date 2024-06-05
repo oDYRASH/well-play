@@ -71,31 +71,38 @@ def profile():
 ################################
 @app.route('/login')
 def login():
-    authorization_url = f'{settings.AUTHORIZATION_BASE_URL}?client_id={settings.CLIENT_ID}&response_type=code&redirect_uri={settings.REDIRECT_URI}'
-    return redirect(authorization_url)
+    # authorization_url = f'{settings.AUTHORIZATION_BASE_URL}?client_id={settings.CLIENT_ID}&response_type=code&redirect_uri={settings.REDIRECT_URI}'
+    return  "la connection avec votre compte Riot est bientôt dispo ;)"#redirect(authorization_url)
 
-@app.route('/callback')
+@app.route('/oauth/callback')
 def callback():
-    code = request.args.get('code')
-    token_response = requests.post(
-        settings.TOKEN_URL,
-        data={
-            'grant_type': 'authorization_code',
-            'code': code,
-            'redirect_uri': settings.REDIRECT_URI,
-            'client_id': settings.CLIENT_ID,
-            'client_secret': settings.CLIENT_SECRET
-        },
-        headers={'Content-Type': 'application/x-www-form-urlencoded'}
-    )
+    # code = request.args.get('code')
+    # token_response = requests.post(
+    #     settings.TOKEN_URL,
+    #     data={
+    #         'grant_type': 'authorization_code',
+    #         'code': code,
+    #         'redirect_uri': settings.REDIRECT_URI,
+    #         'client_id': settings.CLIENT_ID,
+    #         'client_secret': settings.CLIENT_SECRET
+    #     },
+    #     headers={'Content-Type': 'application/x-www-form-urlencoded'}
+    # )
 
-    token_response_data = token_response.json()
-    session['access_token'] = token_response_data.get('access_token')
-    return redirect(url_for('.profile'))
+    # token_response_data = token_response.json()
+    # session['access_token'] = token_response_data.get('access_token')
+    return redirect(url_for('.start'))
+
+#logout root for rso riot api
+@app.route('/logout')
+def logout():
+    session.pop('access_token', None)
+    return redirect(url_for('.start'))
 
 ################################
 ############ LEGAL #############politique de confidentialité
-################################Conditions d'Utilisation
+################################
+#Conditions d'Utilisation
 #base route return hello world
 @app.route("/politique_confidentialite", methods=["GET"]) 
 def politique_confidentialite():
