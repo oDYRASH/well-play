@@ -104,12 +104,12 @@ def logout():
 ################################
 #Conditions d'Utilisation
 #base route return hello world
-@app.route("/politique_confidentialite", methods=["GET"]) 
+@app.route("/politiqueconfidentialite", methods=["GET"]) 
 def politique_confidentialite():
     return render_template('politique_confidentialite.html')
 
 #base route return hello world
-@app.route("/condition_utilisation", methods=["GET"]) 
+@app.route("/conditionutilisation", methods=["GET"]) 
 def condition_utilisation():
     return render_template('condition_utilisation.html')
 
